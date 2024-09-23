@@ -23,7 +23,7 @@ router.post('/register', (request, response) => {
 router.get('/login', (request, response) => {
     const { email, password } = request.body
     const statement = `SELECT id, full_name, email, phone, create_time FROM users
-    WHERE email = ? and password = ?`
+    WHERE email = ? and password = ?;`
     const encryptedPassword = String(crypto.SHA256(password))
     db.pool.query(statement, [email, encryptedPassword], (error, users) => {
         if(error) {
@@ -42,12 +42,12 @@ router.get('/login', (request, response) => {
 })
 
 router.put('/profile/', (request, response) => {
-    const { fullName, phone} = request.body
+    const { fullName, phone, userId} = request.body
     const statement = `UPDATE users SET full_name = ?, phone = ? 
-    WHERE id = ?`
+    WHERE id = ?;`
     db.pool.execute(
         statement,
-        [fullName, phone, request.userId],
+        [fullName, phone, userId],
         (error, result) => {
             response.send(utils.createResult(error, result))
         }
