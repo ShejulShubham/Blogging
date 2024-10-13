@@ -16,9 +16,9 @@ const userRouter = require('./routes/user')
 const categoryRouter = require('./routes/category')
 const blogRouter = require('./routes/blog')
 
-app.use('/user', userRouter)
-app.use('/category', categoryRouter)
-app.use('/blog', blogRouter)
+app.use('/users', userRouter)
+app.use('/categories', categoryRouter)
+app.use('/blogs', blogRouter)
 
 
 app.listen(4000, '0.0.0.0', () => {
