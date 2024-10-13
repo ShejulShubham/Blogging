@@ -35,7 +35,7 @@ function Navbar(){
                         </li>
                     </ul>
                     <form class="d-flex" role="search" style={{marginRight:'10px'}}>
-                        <input class="form-control me-2" type="search" placeholder="Search Blogs    " aria-label="Search"/>
+                        <input class="form-control me-2" type="search" placeholder="Search Blogs" aria-label="Search"/>
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

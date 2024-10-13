@@ -4,6 +4,7 @@ import LoginUser from './pages/login';
 import Home from './pages/home';
 import Navbar from './component/navbar';
 import Sidebar from './component/sidebar';
+import Category from './pages/category';
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
         <div className='col-9'>
           <Routes>
             <Route path='/' element={<Home />}/>
+            <Route path='/home' element={<Home />}/>
             <Route path='/login' element={<LoginUser />} />
             <Route path='/register' element={<LoginUser />} />
+            <Route path='/category' element={<Category/>}/>
           </Routes>
         </div>
       </div>

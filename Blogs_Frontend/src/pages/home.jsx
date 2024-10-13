@@ -5,11 +5,13 @@ import handleError from "./handleError";
 
 
 function Home() {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [blogsData, setBlogsData] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
       loadData();
+      setLoading(false);
     }, [])
 
     const loadData = async () => {
@@ -17,24 +19,32 @@ function Home() {
         const data = await getAllBlogs();
 
         setBlogsData(data);
+        
       } catch(error){
-        handleError(error);
+        setErrorMessage(handleError(error));
+        setLoading(true);
       }
 
-      setLoading(false);
     }
 
 
     return (
-        <div>
+        <>
+            {errorMessage && <div className="alert alert-warning" role="alert">
+                {errorMessage}
+              </div>}
+
             {loading? (
-              <h2 className='loading'>Loading Content.....</h2>
+              <div class="d-flex align-items-center">
+                <strong role="status">Loading...</strong>
+                <div class="spinner-border ms-auto" aria-hidden="true"></div>
+              </div>
           ):(
             <BlogTable
               blogsList={blogsData}
             />
           )}
-        </div>
+        </>
     )
 }
 

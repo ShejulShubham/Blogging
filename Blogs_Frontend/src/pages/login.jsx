@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 import './css/login.css'
+import { useState } from "react";
 
 
 
 function LoginUser() {
+
+    const [errorMessage, setErrorMessage] = useState('');
+
+    
 
 
     return (
@@ -14,6 +19,11 @@ function LoginUser() {
                     <h2 className="card-header text-center">Sign in</h2>
                     <div className="card-body">
                         <form className="row justify-content-between g-3">
+
+                            {errorMessage && <div className="alert alert-warning" role="alert">
+                                    {errorMessage}
+                            </div>}
+
                             <div className="col-md-12">
                                 <label htmlFor="email" className="form-label">Email</label>
                                 <input type='email' className="form-control" id="email"/>
