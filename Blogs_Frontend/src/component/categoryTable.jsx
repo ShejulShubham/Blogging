@@ -1,7 +1,6 @@
-import BlogList from "./blogList";
 
 
-function CategoryTable({categoryList, onEdit, onDelete}){
+function CategoryTable({categoryList, onEdit, onDelete}){   
     return (
         <>
             {categoryList.length > 0 &&  
@@ -14,18 +13,20 @@ function CategoryTable({categoryList, onEdit, onDelete}){
                             <th>Action</th>
                         </tr>
                         </thead>
-                        {categoryList.map((category) => {
+                        <tbody>
+                        {categoryList.map((category) => (
                             <tr id={category.id}>
                                 <td>{category.id}</td>
-                                <td>{category.name}</td>
-                                <td>
+                                <td>{category.title}</td>
+                                <td >
                                     <button onClick={() => onEdit(category.id)} 
                                         className='btn btn-warning' style={{marginRight:'10px'}}>Edit</button>
                                     <button onClick={() => onDelete(category.id)}
                                         className='btn btn-danger'>Delete</button>
                                 </td>
                             </tr> 
-                        })}
+                        ))}
+                        </tbody>
                 </table>
             }
         </>
