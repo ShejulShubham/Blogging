@@ -40,9 +40,11 @@ function Home() {
                 <div class="spinner-border ms-auto" aria-hidden="true"></div>
               </div>
           ):(
-            <BlogTable
-              blogsList={blogsData}
-            />
+            <div className="container" >
+              <BlogTable
+                blogsList={blogsData}
+              />
+            </div>
           )}
         </>
     )
