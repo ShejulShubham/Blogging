@@ -3,7 +3,7 @@ const db = require('../db')
 const utils = require('../utils')
 
 const router = express.Router()
-
+    
 router.post('/add', (request, response) => {
     const { title, description } = request.body
     const statement = `INSERT INTO categories(title, description) 
@@ -19,7 +19,7 @@ router.post('/add', (request, response) => {
 
 router.get('/all', (request, response) => {
     const statement = `SELECT id, title, description FROM categories
-    ORDER BY title;`
+    ORDER BY id;`
     db.pool.query(statement, (error, categories) => {
         response.send(utils.createResult(error, categories))
     })

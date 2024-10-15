@@ -38,10 +38,14 @@ router.post('/add', (request, response) => {
 
 router.get('/all', (request, response) => {
     const { page } = request.query
-    const limit = 5
+    const limit = 10
     const offset = (page - 1) * limit
-    const statement = `SELECT id, title, content, create_time, userId, categoryId FROM blogs
-    ORDER BY id DESC
+    const statement = `SELECT b.id, b.title, b.create_time, u.full_name as author, c.title as category
+    FROM blogs b JOIN users u
+    ON u.id = b.userId
+    JOIN categories c
+    ON c.id = b.categoryId
+    ORDER BY b.id DESC
     LIMIT ? OFFSET ?;`
 
     db.pool.query(statement, [limit, offset], (error, blogs) => {
