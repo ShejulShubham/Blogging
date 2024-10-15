@@ -60,6 +60,19 @@ SELECT id, title, content, create_time, userId, categoryId FROM blogs
 ORDER BY id DESC
 LIMIT ? OFFSET ?;
 
+SELECT b.id, b.title, b.content, b.create_time, u.full_name FROM blogs b JOIN users u
+ON u.id = b.userId
+ORDER BY id DESC
+LIMIT 5;
+
+SELECT b.id, b.title, b.create_time, u.full_name as author, c.title as category
+FROM blogs b JOIN users u
+ON u.id = b.userId
+JOIN categories c
+ON c.id = b.categoryId
+ORDER BY b.id DESC
+LIMIT ? OFFSET ?;
+
 SELECT id, title, content, create_time, userId, categoryId FROM blogs
 WHERE id = ?
 ORDER BY id DESC

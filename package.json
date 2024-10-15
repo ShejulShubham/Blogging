@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  },
+    "scripts": {
+      "start": "concurrently \"npm run start --prefix Blogs_Frontend\" \"npm run start --prefix Blogs_Server\""
+    }
+
+}
