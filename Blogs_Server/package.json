@@ -11,6 +11,6 @@
     "yarn": "^1.22.22"
   },
   "scripts":{
-    "start":"node server.js"
+    "start":"nodemon server.js"
   }
 }
