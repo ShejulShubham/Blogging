@@ -3,7 +3,7 @@
 function CategoryTable({categoryList, onEdit, onDelete}){   
     return (
         <>
-            {categoryList.length > 0 &&  
+            {categoryList &&  
                 <table className="table table-striped table-bordered table-hover">
                 <caption></caption>
                     <thead className='table table-primary'>

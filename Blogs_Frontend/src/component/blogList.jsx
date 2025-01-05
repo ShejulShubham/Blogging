@@ -1,6 +1,7 @@
 
 
-function BlogList({blogs, onEdit, onDelete}){
+function BlogList(props){
+    const {blogs} = props;
     return (
         <tbody>
             {blogs && blogs.map((blog) => (
@@ -11,10 +12,10 @@ function BlogList({blogs, onEdit, onDelete}){
                 <td>{blog.create_time}</td>
                 <td>{blog.author}</td>
                 <td>
-                    <button onClick={() => onEdit(blog.id)} 
+                    {/* <button onClick={() => onEdit(blog.id)} 
                         className='btn btn-warning' style={{marginRight:'10px'}}>Edit</button>
                     <button onClick={() => onDelete(blog.id)}
-                        className='btn btn-danger'>Delete</button>
+                        className='btn btn-danger'>Delete</button> */}
                 </td>
             </tr>
             ))}

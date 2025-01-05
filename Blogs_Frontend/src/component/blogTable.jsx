@@ -1,12 +1,15 @@
 import BlogList from "./blogList";
 
 
-function BlogTable({blogsList, onEdit, onDelete}){
+function BlogTable(props) {
+
+    const { blogsList } = props;
+
     return (
         <>
-            {blogsList.length > 0 &&  
+            {blogsList &&
                 <table className="table table-striped table-bordered table-hover">
-                <caption></caption>
+                    <caption></caption>
                     <thead className='table table-primary'>
                         <tr>
                             <th>Id</th>
@@ -16,12 +19,10 @@ function BlogTable({blogsList, onEdit, onDelete}){
                             <th>Author</th>
                             <th>Action</th>
                         </tr>
-                        </thead>
-                            <BlogList
-                                blogs={blogsList}
-                                onEdit={onEdit}
-                                onDelete={onDelete}
-                            />
+                    </thead>
+                    <BlogList
+                        blogs={blogsList}
+                    />
                 </table>
             }
         </>
